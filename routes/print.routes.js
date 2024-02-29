@@ -1,6 +1,10 @@
 const express = require('express');
 const router = express.Router();
-//const { usb, getDeviceList, findByIds } = require('usb');
+const escpos = require('escpos');
+escpos.USB = require('escpos-usb');
+
+//const usbDevice = new escpos.USB(0x0FE6, 0x811E);
+const device  = new escpos.USB();
 
 
 
@@ -9,8 +13,7 @@ router.get('/', function (req, res) {
 });
 
 router.get('/connect', async function (req, res) {
-    //const device = findByIds(0x0FE6, 0x811E);
-    //console.log(device.open());
+
     res.send("Configurado Correctamente..");
 });
 
